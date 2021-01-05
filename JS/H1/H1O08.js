@@ -1,5 +1,5 @@
-var variabeleA = 21;
-var variabeleB = 14;
+var variabeleA = 15;
+var variabeleB = 50;
 var uitkomst;
 
 function setup() {

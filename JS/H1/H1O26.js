@@ -9,7 +9,7 @@ function draw() {
   background('orange');
   fill('wheat');
   rect(0,250,width,height - 250);
-  translate(125,0);
+  //translate(125,0);
 
   for (var n = 1;n <= 4;n++) {
     tekenHuis();

@@ -9,19 +9,31 @@ function setup() {
 function draw() {
   background('cornflowerblue');
   schaal = 1 + mouseY / height;
-
+  tekenZon(mouseX,schaal);
   // teken de grond
   fill('wheat');
   rect(0,250,width,height - 250);  
 
-  tekenHuis();
+  tekenHuis(350);
 
   tekenBoom(700);
   tekenBoom(900);
+  tekenBoom(50);
+  tekenBoom(250);
+  tekenBoom(150);
 }
 
-function tekenHuis() {
+function tekenZon(x,s) {
+  push()
+  fill('red');
+  scale(s);
+  ellipse(x,200,300,300);
+  pop();
+}
+
+function tekenHuis(x) {
   push();
+  translate(x,0);
   strokeWeight(4);
   stroke('darkgrey');
   fill('lightgray');

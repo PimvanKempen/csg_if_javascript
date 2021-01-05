@@ -16,21 +16,27 @@ function draw() {
   noStroke();
   rect(0,0,width,40);
   fill('black');  
-  text("De bol beweegt heen en weer (snelheid = " + snelheid + "). | Klik met je muis!",10,30);
+  text("De bol beweegt heen en weer (snelheid = " + snelheid + "). | Druk op een toets!",10,30);
   stroke('white');
   strokeWeight(10);
 
-  if (mouseIsPressed == true && snelheid == 5) {
+  if (snelheid > 0) {
       fill('green');
   }
   else {
     fill('dodgerblue');
   }
-  
-  if (x>880) {
-    snelheid = -1*snelheid;
+
+  if (keyIsPressed == false) {
+      fill('red');
+      diameter = 100;
   }
-  if (x<120) {
+  else {
+      diameter = 200;
+  }
+
+  
+  if (x > 880 || x < 120) {
     snelheid = -1*snelheid;
   }
 

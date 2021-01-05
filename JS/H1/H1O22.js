@@ -1,5 +1,6 @@
 var kleur = 'indianred';
 var afstand;
+var achtergrond = 'lavender';
 
 function setup() {
   canvas = createCanvas(450,450);
@@ -11,25 +12,36 @@ function setup() {
 }
 
 function draw() {
-  background('lavender');
+  background(achtergrond);
   fill('black');  
-  
+
   mouseX=constrain(mouseX,25,width - 25);
   mouseY=constrain(mouseY,25,height - 25);
 
   text("Beweeg de muis | x = " + round(mouseX) + " en y = " + round(mouseY),10,20);
   
-  if (mouseX >= width - 30) {
+  if (mouseX >= width - 30 || mouseX <= 30 || mouseY >= height - 30 || mouseY <= 30) {
     kleur='red';
   }
   else {
     kleur='indianred';
   }
+
+  if (afstand <= 55) {
+      kleur='red';
+  }
+
+  if (mouseX < width/2) {
+      achtergrond = 'yellow';
+  }
+  else {
+      achtergrond = 'white';
+  }
   
   ellipse(width / 2,height / 2,100);
   tekenJos(mouseX,mouseY,kleur);
-  afstand=dist(315,105,225,225);
-  text(afstand,10,40);
+  afstand=dist(mouseX,mouseY,225,225);
+  text("Afstand tussen JOS en zwarte bol = " + round(afstand),10,40);
 }
 
 function tekenJos(x,y,kleur) {
